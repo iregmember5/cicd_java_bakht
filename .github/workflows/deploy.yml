@@ -27,8 +27,8 @@ jobs:
       run: |
         echo "$PRIVATE_KEY" > key.pem
         chmod 600 key.pem
-        scp -o StrictHostKeyChecking=no -i key.pem target/demoapp-0.0.1-SNAPSHOT.jar root@YOUR_VPS_IP:/home/root/java-app/
-        ssh -o StrictHostKeyChecking=no -i key.pem root@YOUR_VPS_IP << 'EOF'
+        scp -o StrictHostKeyChecking=no -i key.pem target/demoapp-0.0.1-SNAPSHOT.jar root@145.223.79.113:/home/root/java-app/
+        ssh -o StrictHostKeyChecking=no -i key.pem root@145.223.79.113 << 'EOF'
           pkill -f 'demoapp-0.0.1-SNAPSHOT.jar' || true
           nohup java -jar /home/root/java-app/demoapp-0.0.1-SNAPSHOT.jar > /home/root/java-app/app.log 2>&1 &
         EOF
